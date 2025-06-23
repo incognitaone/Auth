@@ -1,8 +1,8 @@
-"""Auth
+"""Telegtam
 
-Revision ID: 722b1aa06a4d
+Revision ID: a98cbca43a20
 Revises: 
-Create Date: 2025-06-17 10:10:56.920626
+Create Date: 2025-06-21 10:35:41.979080
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '722b1aa06a4d'
+revision = 'a98cbca43a20'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -37,6 +37,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('username', sa.String(length=64), nullable=False),
     sa.Column('password', sa.String(length=120), nullable=False),
+    sa.Column('telegram_id', sa.String(length=60), nullable=True),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('username')
